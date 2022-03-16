@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import Avatar from '../../assets/Avatar-Maker.png'
+import Avatar from '../../assets/home.jpg'
 
 
 const styles = makeStyles({
@@ -46,12 +46,13 @@ export default function Navbar() {
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
+            transition={{ duration: 2, delay: 0.5 }}
+            exit={{opacity: 0, transition: {duration: 1}}}
         >
             <div>
                 <h2 className={classes.title}>Welcome to my Portfolio!</h2>
                 <div className={classes.homeContainer}>
-                    <img alt="Wife and I" src={Avatar} className={classes.avatar} />
+                    <motion.img alt="Wife and I" src={Avatar} className={classes.avatar} animation={{borderRadius: [15, 20, 12, 31]}} />
                     <div className={classes.bioContainer}>
                         <h3 style={{fontSize: "35px"}}>Bradley Litman</h3>
                         <div>
