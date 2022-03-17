@@ -4,8 +4,6 @@ import { makeStyles } from '@mui/styles';
 import Typewriter from "typewriter-effect";
 import AboutPhoto from "../../assets/about.jpg"
 
-
-
 const styles = makeStyles({
     title: {
         textAlign: "center",

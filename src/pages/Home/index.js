@@ -61,7 +61,15 @@ export default function Navbar() {
             <div>
                 <h2 className={classes.title}>Welcome to my Portfolio!</h2>
                 <div className={classes.homeContainer}>
-                    <motion.img alt="Wife and I" src={Avatar} className={classes.avatar} animate={{ borderRadius: ["49% 51% 80% 20% / 30% 30% 70% 70%", "65% 35% 59% 41% / 30% 30% 70% 70%", "49% 51% 80% 20% / 30% 30% 70% 70%"] }} transition={{ repeat: Infinity, duration: 5 }} />
+                    <motion.img
+                        alt="Wife and I"
+                        src={Avatar}
+                        className={classes.avatar}
+                        animate={{
+                            borderRadius: ["49% 51% 80% 20% / 30% 30% 70% 70%", "65% 35% 59% 41% / 30% 30% 70% 70%", "48% 86% 60% 80% / 30% 30% 70% 70%", "49% 51% 80% 20% / 30% 30% 70% 70%"]
+                        }}
+                        transition={{ repeat: Infinity, duration: 5 }}
+                    />
                     <div className={classes.bioContainer}>
                         <h3 style={{ fontSize: "35px" }}>Bradley Litman</h3>
                         <div>
