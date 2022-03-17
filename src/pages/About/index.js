@@ -7,7 +7,8 @@ import AboutPhoto from "../../assets/about.jpg"
 const styles = makeStyles({
     title: {
         textAlign: "center",
-        marginTop: "50px"
+        marginTop: "50px",
+        fontSize: "2em"
     },
     container: {
         display: "flex",

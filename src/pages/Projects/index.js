@@ -6,18 +6,55 @@ import Project from '../../components/project';
 const styles = makeStyles({
     title: {
         textAlign: "center",
-        marginTop: "50px"
+        marginTop: "50px",
+        fontSize: "2em"
+    },
+    starProject: {
+        display: "flex",
+        justifyContent: "center",
+    },
+    projectTitle: {
+        fontSize: "25px",
+        textAlign: "center",
+        marginBottom: "30px"
+    },
+    projectsContainer: {
+        display: "flex",
+        justifyContent: "space-around",
+        marginBottom: "30px",
+        flexWrap: "wrap"
     }
 })
 
+
+export default function Projects() {
+    const classes = styles()
+    return (
+        <motion.div
+            initial={{ x: '-100vw' }}
+            animate={{ x: 0 }}
+            transition={{ type: 'tween', duration: 0.5, delay: 0.8 }}
+            exit={{ opacity: 0, transition: { duration: 0.8 } }}
+        >
+            <h2 className={classes.title}>Projects</h2>
+            <h3 className={classes.projectTitle}>Star Project</h3>
+            <div className={classes.starProject}>
+                <Project first={true} title='RenDATEvous' image="rendatevous.png" description='MERN Stack with GraphQl/Apollo to find, save and rate Date ideas. Also a PWA!' githubLink='https://github.com/Blitman12/ren-date-vous' deployedLink='https://rendatevous.herokuapp.com/' />
+            </div>
+            <div className={classes.projectsContainer}>
+                {projects.map((project, index) => {
+                    const first = false
+                    const { title, image, description, githubLink, deployedLink } = project
+                    return <Project first={first} title={title} image={image} description={description} githubLink={githubLink} deployedLink={deployedLink} key={title} />
+                })}
+            </div>
+        </motion.div>
+    )
+}
+
+
+
 const projects = [
-    {
-        title: 'RenDATEvous',
-        image: 'rendatevous.png',
-        description: 'MERN Stack with Apollo to find, save and rate Date ideas',
-        githubLink: 'https://github.com/Blitman12/ren-date-vous',
-        deployedLink: 'https://rendatevous.herokuapp.com/'
-    },
     {
         title: 'Baby Aid',
         image: 'baby-aid.png',
@@ -40,21 +77,3 @@ const projects = [
         deployedLink: 'https://blitman12.github.io/Citizen-Master/'
     }
 ]
-
-export default function Projects() {
-    const classes = styles()
-    return (
-        <motion.div
-            initial={{ x: '-100vw' }}
-            animate={{ x: 0 }}
-            transition={{ type: 'tween', duration: 0.5, delay: 0.8 }}
-            exit={{opacity: 0, transition: {duration: 0.8}}}
-        >
-            <h2 className={classes.title}>Projects</h2>
-            {projects.map(project => {
-                const {title, image, description, githubLink, deployedLink} = project
-                return <Project title={title} image={image} description={description} githubLink={githubLink} deployedLink={deployedLink} key={title}/>
-            })}
-        </motion.div>
-    )
-}
