@@ -28,7 +28,8 @@ const styles = makeStyles({
         display: "flex",
         flexDirection: "column",
         alignSelf: "center",
-        marginBottom: "100px"
+        marginBottom: "100px",
+        width: "50%"
     },
     bioText: {
         width: "75%"
