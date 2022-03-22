@@ -12,7 +12,8 @@ const styles = makeStyles({
     },
     projectImageStar: {
         width: "800px",
-        maxWidth: "100%"
+        maxWidth: "100%",
+        marginLeft: "3.5%"
     },
     link: {
         textDecoration: "none",
