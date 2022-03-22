@@ -48,15 +48,42 @@ export default function Home() {
     const classes = styles()
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [showDesktop, setShowDesktop] = useState(true);
+    const size = useWindowSize()
 
+    function useWindowSize() {
+        const [windowSize, setWindowSize] = useState({
+            width: undefined,
+            height: undefined,
+        });
+        useEffect(() => {
+            // Handler to call on window resize
+            function handleResize() {
+                // Set window width/height to state
+                setWindowSize({
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                });
+            }
+            // Add event listener
+            window.addEventListener("resize", handleResize);
+            // Call handler right away so state gets updated with initial window size
+            handleResize();
+            // Remove event listener on cleanup
+            return () => window.removeEventListener("resize", handleResize);
+        }, []); // Empty array ensures that effect is only run on mount
+        return windowSize;
+    }
+    
 
     useEffect(() => {
-        if (window.innerWidth > 717) {
+        if (size.width > 717) {
             setShowDesktop(true)
         } else {
             setShowDesktop(false)
         }
-    }, [])
+    }, [size.width])
+
+    
 
     return (
         <motion.div
@@ -125,7 +152,7 @@ export default function Home() {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Drawer  anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} classes={{ paper: classes.hamburger }}>
+                        <Drawer anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} classes={{ paper: classes.hamburger }}>
                             <List className={classes.drawer}>
                                 <ListItem button>
                                     <Link to="/" className={classes.links}>
