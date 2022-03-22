@@ -13,7 +13,8 @@ const styles = makeStyles({
         fontSize: "2em"
     },
     map: {
-        width: "30%",
+        width: "400px",
+        maxWidth: "100%"
     },
     contactContainer: {
         marginTop: "100px",
