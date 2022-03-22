@@ -16,7 +16,8 @@ const styles = makeStyles({
         flexWrap: "wrap"
     },
     photo: {
-        borderRadius: "50%"
+        borderRadius: "50%",
+        maxWidth: "80vw"
     },
     favoriteSkills: {
         textAlign: "center",
@@ -25,7 +26,8 @@ const styles = makeStyles({
     textBio: {
         width: "500px",
         marginLeft: "15px",
-        marginBottom: "50px"
+        marginBottom: "50px",
+        maxWidth: "80vw"
     },
     list: {
         listStyle: "none",
